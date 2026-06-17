@@ -1,0 +1,34 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import { useInView, useMotionValue, animate } from "framer-motion";
+
+export default function CountUp({
+  to,
+  prefix = "",
+  suffix = "",
+  duration = 1.4,
+}: {
+  to: number;
+  prefix?: string;
+  suffix?: string;
+  duration?: number;
+}) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-60px" });
+  const mv = useMotionValue(0);
+
+  useEffect(() => {
+    if (!inView) return;
+    const controls = animate(mv, to, {
+      duration,
+      ease: [0.22, 1, 0.36, 1],
+      onUpdate: (v) => {
+        if (ref.current) ref.current.textContent = `${prefix}${Math.round(v)}${suffix}`;
+      },
+    });
+    return () => controls.stop();
+  }, [inView, to, prefix, suffix, duration, mv]);
+
+  return <span ref={ref}>{`${prefix}0${suffix}`}</span>;
+}

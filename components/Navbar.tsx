@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
 const links = [
@@ -55,12 +56,20 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <a
-          href="#contact"
-          className="hidden items-center gap-2 rounded-full bg-ink px-5 py-2 text-sm font-semibold text-paper transition-all hover:bg-accent md:inline-flex"
-        >
-          Let&apos;s talk
-        </a>
+        <div className="hidden items-center gap-2 md:flex">
+          <Link
+            href="/resume"
+            className="rounded-full border border-line bg-card px-4 py-2 text-sm font-semibold text-ink transition-colors hover:border-accent hover:text-accent"
+          >
+            Résumé
+          </Link>
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2 text-sm font-semibold text-paper transition-all hover:bg-accent"
+          >
+            Let&apos;s talk
+          </a>
+        </div>
 
         <button
           aria-label="Toggle menu"
@@ -102,6 +111,15 @@ export default function Navbar() {
                 </a>
               </li>
             ))}
+            <li>
+              <Link
+                href="/resume"
+                onClick={() => setOpen(false)}
+                className="block px-6 py-3 font-semibold text-accent transition-colors hover:bg-card"
+              >
+                Résumé ↓
+              </Link>
+            </li>
           </motion.ul>
         )}
       </AnimatePresence>

@@ -7,6 +7,9 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/nahid-001-nayan",
   summary:
     "First-Class Computer Science graduate and full-stack software engineer with hands-on experience building production-grade web applications and machine-learning systems. Skilled across the full stack and the end-to-end ML lifecycle — from data pipelines and model selection to evaluation and SHAP explainability.",
+  summaryFull:
+    "First-Class Computer Science graduate and full-stack software engineer with hands-on experience building production-grade web applications and machine-learning systems. Skilled across the full stack (React, Next.js, Node.js, Spring Boot, Python) and the end-to-end ML lifecycle (data pipelines, model selection, evaluation, and SHAP explainability with scikit-learn, XGBoost, and LightGBM). Proven ability to own complex projects and deliver clear, reliable outcomes in cross-functional teams.",
+  resumeFile: "/MD_NAHID_HUSEN_NAYAN.pdf",
   taglines: [
     "Full-Stack Software Engineer",
     "Machine Learning Engineer",
@@ -15,10 +18,10 @@ export const profile = {
 };
 
 export const stats = [
-  { value: "1st", label: "Class Honours" },
-  { value: "240K+", label: "Books indexed" },
-  { value: "108M", label: "ML interactions" },
-  { value: "<100ms", label: "Search latency" },
+  { prefix: "", to: 1, suffix: "st", label: "Class Honours" },
+  { prefix: "", to: 240, suffix: "K+", label: "Books indexed" },
+  { prefix: "", to: 108, suffix: "M", label: "ML interactions" },
+  { prefix: "<", to: 100, suffix: "ms", label: "Search latency" },
 ];
 
 /**
@@ -138,6 +141,8 @@ export type Project = {
   description: string;
   stack: string[];
   highlights: string[];
+  metrics: { value: string; label: string }[];
+  visual: "search" | "health";
 };
 
 export const projects: Project[] = [
@@ -163,6 +168,12 @@ export const projects: Project[] = [
       "Built an offline ML pipeline over 108M Goodreads interactions: SciPy sparse matrix → TruncatedSVD (k=50) → L2-normalised cosine similarity, writing top-20 similar books to MongoDB.",
       "Implemented JWT + Passport.js auth with wishlists, libraries, and custom shelves; interactions feed a reciprocal-rank aggregation engine for real-time personalised recommendations.",
     ],
+    metrics: [
+      { value: "240K+", label: "Books indexed" },
+      { value: "<100ms", label: "Search latency" },
+      { value: "108M", label: "Interactions" },
+    ],
+    visual: "search",
   },
   {
     title: "Diabetes Disease Prediction System",
@@ -187,6 +198,12 @@ export const projects: Project[] = [
       "Built a microservice architecture (Vue 3 + Spring Boot with an independent Python Flask ML service) with ECharts dashboards.",
       "Implemented JWT multi-role RBAC across patient, doctor, and admin portals.",
     ],
+    metrics: [
+      { value: "2", label: "ML models" },
+      { value: "Top-10", label: "SHAP features" },
+      { value: "3", label: "Role portals" },
+    ],
+    visual: "health",
   },
 ];
 
