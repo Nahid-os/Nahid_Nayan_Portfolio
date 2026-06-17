@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --paper: #f6f4ef;
+  --ink: #17140f;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  background-color: var(--paper);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+}
+::-webkit-scrollbar-track {
+  background: #efece4;
+}
+::-webkit-scrollbar-thumb {
+  background: #ea580c;
+  border: 3px solid #efece4;
+  border-radius: 999px;
+}
+
+::selection {
+  background: #ea580c;
+  color: #fff;
+}
+
+@layer utilities {
+  .text-accent-underline {
+    text-decoration: underline;
+    text-decoration-color: #ea580c;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 6px;
+  }
+
+  /* Swiss-style faint grid in the hero */
+  .swiss-grid {
+    background-image:
+      linear-gradient(to right, rgba(23, 20, 15, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(23, 20, 15, 0.05) 1px, transparent 1px);
+    background-size: 72px 72px;
+  }
+
+  .marquee-mask {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 12%,
+      #000 88%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 12%,
+      #000 88%,
+      transparent
+    );
+  }
+
+  .card-hover {
+    transition:
+      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.35s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px -20px rgba(23, 20, 15, 0.25);
+    border-color: rgba(234, 88, 12, 0.45);
+  }
+}
