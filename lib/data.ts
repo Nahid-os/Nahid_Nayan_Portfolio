@@ -17,11 +17,33 @@ export const profile = {
   ],
 };
 
-export const stats = [
-  { prefix: "", to: 1, suffix: "st", label: "Class Honours" },
-  { prefix: "", to: 240, suffix: "K+", label: "Books indexed" },
-  { prefix: "", to: 108, suffix: "M", label: "ML interactions" },
-  { prefix: "<", to: 100, suffix: "ms", label: "Search latency" },
+export type AboutHighlight = {
+  tag: string;
+  icon: "award" | "work";
+  metric?: { prefix: string; to: number; suffix: string };
+  title?: string;
+  sub: string;
+};
+
+export const aboutHighlights: AboutHighlight[] = [
+  {
+    tag: "Achievement",
+    icon: "award",
+    metric: { prefix: "", to: 1, suffix: "st" },
+    sub: "First-Class Honours",
+  },
+  {
+    tag: "Experience",
+    icon: "work",
+    title: "ML Research Intern",
+    sub: "Dalian University · China",
+  },
+  {
+    tag: "Experience",
+    icon: "work",
+    title: "Computer Lab Assistant",
+    sub: "Univ. of Roehampton · UK",
+  },
 ];
 
 /**

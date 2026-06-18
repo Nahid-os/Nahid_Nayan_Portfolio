@@ -199,18 +199,11 @@ export default function Hero() {
                 <span className="transition-transform group-hover:translate-x-1">→</span>
               </a>
               <a
-                href={`mailto:${profile.email}`}
+                href="#contact"
                 className="inline-flex items-center gap-2 rounded-full border border-line bg-card px-6 py-3 text-sm font-semibold text-ink transition-colors hover:border-accent hover:text-accent"
               >
                 Get in touch
               </a>
-              <Link
-                href="/resume"
-                className="group inline-flex items-center gap-2 rounded-full border border-line bg-card px-6 py-3 text-sm font-semibold text-ink transition-colors hover:border-accent hover:text-accent"
-              >
-                Résumé
-                <span className="transition-transform group-hover:translate-y-0.5">↓</span>
-              </Link>
             </motion.div>
           </div>
 
@@ -257,30 +250,14 @@ export default function Hero() {
                 ))}
               </div>
 
-              <div className="relative mt-6 space-y-2 border-t border-line pt-5">
+              <div className="relative mt-6 border-t border-line pt-5">
                 <Link
                   href="/resume"
-                  className="group flex w-full items-center justify-center gap-2 rounded-xl bg-accent py-2.5 text-center text-sm font-semibold text-paper transition-all hover:scale-[1.02]"
+                  className="group flex w-full items-center justify-center gap-2 rounded-xl bg-accent py-3 text-center text-sm font-semibold text-paper transition-all hover:scale-[1.02]"
                 >
                   View résumé
                   <span className="transition-transform group-hover:translate-x-1">→</span>
                 </Link>
-                <div className="flex gap-2">
-                  <a
-                    href={`mailto:${profile.email}`}
-                    className="flex-1 rounded-xl bg-ink py-2.5 text-center text-sm font-semibold text-paper transition-colors hover:bg-accent"
-                  >
-                    Email
-                  </a>
-                  <a
-                    href={profile.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 rounded-xl border border-line py-2.5 text-center text-sm font-semibold text-ink transition-colors hover:border-accent hover:text-accent"
-                  >
-                    LinkedIn ↗
-                  </a>
-                </div>
               </div>
             </div>
           </motion.div>

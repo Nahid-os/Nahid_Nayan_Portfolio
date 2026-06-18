@@ -3,7 +3,24 @@
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 import CountUp from "./CountUp";
-import { stats, education } from "@/lib/data";
+import { aboutHighlights, education } from "@/lib/data";
+
+function AwardIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <circle cx="12" cy="8" r="5" />
+      <path d="M8.2 12.5 7 22l5-3 5 3-1.2-9.5" />
+    </svg>
+  );
+}
+function WorkIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <rect x="3" y="7" width="18" height="13" rx="2" />
+      <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18" />
+    </svg>
+  );
+}
 
 export default function About() {
   return (
@@ -43,14 +60,34 @@ export default function About() {
             </div>
           </Reveal>
 
-          {/* Stats with count-up */}
-          {stats.map((s, i) => (
-            <Reveal key={s.label} delay={i * 0.06}>
-              <div className="group flex h-full flex-col justify-center rounded-3xl border border-line bg-card p-6 card-hover">
-                <div className="font-display text-3xl font-bold text-ink sm:text-4xl">
-                  <CountUp to={s.to} prefix={s.prefix} suffix={s.suffix} />
+          {/* Highlights: achievement + experience */}
+          {aboutHighlights.map((h, i) => (
+            <Reveal key={h.title ?? h.sub} delay={i * 0.06}>
+              <div className="group flex h-full flex-col justify-between rounded-3xl border border-line bg-card p-6 card-hover">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-accent">
+                    {h.tag}
+                  </span>
+                  <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-paper text-accent transition-colors group-hover:bg-accent group-hover:text-paper">
+                    {h.icon === "award" ? <AwardIcon /> : <WorkIcon />}
+                  </span>
                 </div>
-                <div className="mt-1 text-sm text-muted">{s.label}</div>
+                <div className="mt-6">
+                  {h.metric ? (
+                    <div className="font-display text-4xl font-bold leading-none text-ink">
+                      <CountUp
+                        to={h.metric.to}
+                        prefix={h.metric.prefix}
+                        suffix={h.metric.suffix}
+                      />
+                    </div>
+                  ) : (
+                    <div className="font-display text-lg font-bold leading-tight text-ink">
+                      {h.title}
+                    </div>
+                  )}
+                  <div className="mt-1.5 text-sm text-muted">{h.sub}</div>
+                </div>
               </div>
             </Reveal>
           ))}
@@ -69,7 +106,7 @@ export default function About() {
           </Reveal>
 
           {/* Status */}
-          <Reveal delay={0.06}>
+          <Reveal delay={0.06} className="col-span-2 lg:col-span-1">
             <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-3xl bg-ink p-6 text-paper card-hover">
               <div className="pointer-events-none absolute -bottom-12 -right-10 h-32 w-32 rounded-full bg-accent/40 blur-2xl" />
               <div className="relative font-mono text-xs uppercase tracking-[0.18em] text-paper/60">
@@ -86,7 +123,7 @@ export default function About() {
           </Reveal>
 
           {/* Education — wide */}
-          <Reveal className="col-span-2 lg:col-span-4">
+          <Reveal className="col-span-2 lg:col-span-3">
             <div className="flex h-full flex-col gap-4 rounded-3xl border border-line bg-card p-7 card-hover sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <div className="font-mono text-xs uppercase tracking-[0.18em] text-accent">
