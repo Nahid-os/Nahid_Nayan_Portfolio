@@ -137,7 +137,7 @@ export default function Hero() {
             Available for work
           </span>
           <span>{profile.location}</span>
-          <span className="hidden sm:inline">Portfolio — 2026</span>
+          <span className="hidden sm:inline"></span>
         </motion.div>
 
         <div className="grid gap-10 pt-12 lg:grid-cols-[1.45fr_1fr] lg:items-center">
