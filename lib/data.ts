@@ -5,6 +5,7 @@ export const profile = {
   location: "London, United Kingdom",
   email: "nahidhusen23@gmail.com",
   linkedin: "https://www.linkedin.com/in/nahid-001-nayan",
+  github: "https://github.com/Nahid-os",
   summary:
     "First-Class Computer Science graduate and full-stack software engineer with hands-on experience building production-grade web applications and machine-learning systems. Skilled across the full stack and the end-to-end ML lifecycle — from data pipelines and model selection to evaluation and SHAP explainability.",
   summaryFull:
